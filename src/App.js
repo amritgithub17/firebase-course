@@ -42,6 +42,8 @@ function App() {
     getMovieList();
   },[])
   
+
+  // USED TO PUSH THE DATA IN FIREBASE
   const onSubmitMovie = async()=>{
     try{
     await addDoc(moviesCollectionRef  , 
@@ -60,6 +62,7 @@ function App() {
   }
 
   
+  // DELETING THE MOVIE
   const deleteMovie = async(id) => {
     try{
       const movieDoc = doc(db , "movies" , id);
@@ -73,6 +76,7 @@ function App() {
   }
 
 
+  // UPDATING THE MOVIE
   const updateMovie = async(id) =>{
       const newDoc = doc(db, "movies" ,id);
       await updateDoc(newDoc , {title : updatedTitle , releaseDate : updateDate});
